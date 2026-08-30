@@ -23,17 +23,17 @@ enum TransitionDisposition { applied, rejected, stale }
 
 extension SyncLifecycleEventContract on SyncLifecycleEvent {
   bool get requiresGeneration => switch (this) {
-    SyncLifecycleEvent.wake => false,
-    SyncLifecycleEvent.join => false,
-    SyncLifecycleEvent.beginAcquire => false,
-    SyncLifecycleEvent.acquireGranted => true,
-    SyncLifecycleEvent.acquireDeferred => true,
-    SyncLifecycleEvent.cancel => false,
-    SyncLifecycleEvent.cycleSettled => true,
-    SyncLifecycleEvent.releaseSettled => true,
-    SyncLifecycleEvent.close => false,
-    SyncLifecycleEvent.processAbort => true,
-  };
+        SyncLifecycleEvent.wake => false,
+        SyncLifecycleEvent.join => false,
+        SyncLifecycleEvent.beginAcquire => false,
+        SyncLifecycleEvent.acquireGranted => true,
+        SyncLifecycleEvent.acquireDeferred => true,
+        SyncLifecycleEvent.cancel => false,
+        SyncLifecycleEvent.cycleSettled => true,
+        SyncLifecycleEvent.releaseSettled => true,
+        SyncLifecycleEvent.close => false,
+        SyncLifecycleEvent.processAbort => true,
+      };
 }
 
 final class SyncLifecycleCommand {
@@ -54,12 +54,12 @@ final class SyncLifecycleSnapshot {
   });
 
   const SyncLifecycleSnapshot.initial()
-    : phase = SyncLifecyclePhase.idle,
-      wakePending = false,
-      closeRequested = false,
-      cancelRequested = false,
-      permitHeld = false,
-      generation = 0;
+      : phase = SyncLifecyclePhase.idle,
+        wakePending = false,
+        closeRequested = false,
+        cancelRequested = false,
+        permitHeld = false,
+        generation = 0;
 
   final SyncLifecyclePhase phase;
   final bool wakePending;
@@ -96,12 +96,12 @@ final class SyncLifecycleSnapshot {
   bool get acceptsWake => phase != SyncLifecyclePhase.closed && !closeRequested;
 
   String get phaseLabel => switch (phase) {
-    SyncLifecyclePhase.idle => 'Idle',
-    SyncLifecyclePhase.acquiring => 'Acquiring ownership',
-    SyncLifecyclePhase.running => 'Synchronizing',
-    SyncLifecyclePhase.releasing => 'Releasing ownership',
-    SyncLifecyclePhase.closed => 'Closed',
-  };
+        SyncLifecyclePhase.idle => 'Idle',
+        SyncLifecyclePhase.acquiring => 'Acquiring ownership',
+        SyncLifecyclePhase.running => 'Synchronizing',
+        SyncLifecyclePhase.releasing => 'Releasing ownership',
+        SyncLifecyclePhase.closed => 'Closed',
+      };
 
   SyncLifecycleSnapshot copyWith({
     SyncLifecyclePhase? phase,
@@ -110,14 +110,15 @@ final class SyncLifecycleSnapshot {
     bool? cancelRequested,
     bool? permitHeld,
     int? generation,
-  }) => SyncLifecycleSnapshot(
-    phase: phase ?? this.phase,
-    wakePending: wakePending ?? this.wakePending,
-    closeRequested: closeRequested ?? this.closeRequested,
-    cancelRequested: cancelRequested ?? this.cancelRequested,
-    permitHeld: permitHeld ?? this.permitHeld,
-    generation: generation ?? this.generation,
-  );
+  }) =>
+      SyncLifecycleSnapshot(
+        phase: phase ?? this.phase,
+        wakePending: wakePending ?? this.wakePending,
+        closeRequested: closeRequested ?? this.closeRequested,
+        cancelRequested: cancelRequested ?? this.cancelRequested,
+        permitHeld: permitHeld ?? this.permitHeld,
+        generation: generation ?? this.generation,
+      );
 
   @override
   bool operator ==(Object other) =>
@@ -131,17 +132,16 @@ final class SyncLifecycleSnapshot {
 
   @override
   int get hashCode => Object.hash(
-    phase,
-    wakePending,
-    closeRequested,
-    cancelRequested,
-    permitHeld,
-    generation,
-  );
+        phase,
+        wakePending,
+        closeRequested,
+        cancelRequested,
+        permitHeld,
+        generation,
+      );
 
   @override
-  String toString() =>
-      'SyncLifecycleSnapshot(phase: ${phase.name}, '
+  String toString() => 'SyncLifecycleSnapshot(phase: ${phase.name}, '
       'wakePending: $wakePending, closeRequested: $closeRequested, '
       'cancelRequested: $cancelRequested, permitHeld: $permitHeld, '
       'generation: $generation)';

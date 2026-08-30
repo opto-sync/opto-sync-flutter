@@ -219,7 +219,8 @@ SyncLifecycleTransition _apply(
   SyncLifecycleMachine machine,
   SyncLifecycleEvent event, {
   int? generation,
-}) => machine.dispatch(SyncLifecycleCommand(event, generation: generation));
+}) =>
+    machine.dispatch(SyncLifecycleCommand(event, generation: generation));
 
 final class _RecordingApiClient extends ApiClient {
   _RecordingApiClient() : super(baseUrl: 'recorded');
