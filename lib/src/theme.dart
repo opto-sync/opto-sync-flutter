@@ -7,4 +7,3 @@ ThemeData appTheme() {
     useMaterial3: true,
   );
 }
-

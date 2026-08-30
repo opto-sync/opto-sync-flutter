@@ -1,0 +1,15 @@
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    missing_enum_constant_in_switch: error
+
+linter:
+  rules:
+    avoid_dynamic_calls: true
+    exhaustive_cases: true
+    no_default_cases: true
+    prefer_final_fields: true
+    strict_top_level_inference: true

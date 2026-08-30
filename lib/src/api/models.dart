@@ -3,4 +3,3 @@ class ConnectionStatus {
   final bool connected;
   final String endpoint;
 }
-
