@@ -16,4 +16,3 @@ class OptoSyncApp extends StatelessWidget {
     );
   }
 }
-

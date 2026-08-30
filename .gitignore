@@ -3,10 +3,13 @@
 /build
 /.dart_tool
 /coverage
+/_apalache-out
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
 .DS_Store
 .env
 .env.*
 !.env.example
 *.sqlite
 Cargo.lock
-

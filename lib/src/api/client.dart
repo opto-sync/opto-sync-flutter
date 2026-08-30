@@ -7,4 +7,3 @@ class ApiClient {
   ConnectionStatus snapshot() =>
       ConnectionStatus(connected: false, endpoint: baseUrl);
 }
-
