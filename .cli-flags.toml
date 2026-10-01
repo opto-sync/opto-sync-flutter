@@ -1,0 +1,16 @@
+# Canonical flags-2-env contract for opto-sync-flutter.
+# Client credentials remain outside argv; this file is the typed public configuration boundary.
+
+[identity]
+service = "opto-sync-flutter"
+type_name = "RuntimeEnv"
+
+[help]
+url = "https://github.com/flags-2-env/flags-2-env"
+
+[parse]
+allow_unknown = false
+
+[env]
+load = false
+files = []
